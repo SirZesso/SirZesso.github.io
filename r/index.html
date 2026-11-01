@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ein Rezept für dich – HAMSTi</title>
 <meta name="description" content="Jemand hat dir ein Rezept aus HAMSTi geschickt.">
+<meta property="og:site_name" content="HAMSTi">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Ein Rezept für dich">
-<meta property="og:description" content="Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.">
-<meta property="og:image" content="/app-icon.png">
+<meta property="og:description" content="Mit einem Tipp in deinen Haushalt übernehmen.">
+<!-- Absolute URL, sonst zeigt iMessage kein Bild. Beim Umzug auf hamsti.ch anpassen. -->
+<meta property="og:image" content="https://sirzesso.github.io/share-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HAMSTi-Hamster mit Haus: Ein Rezept für dich">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#2f5f86">
 <link rel="icon" type="image/png" href="/app-icon.png">
 <link rel="apple-touch-icon" href="/app-icon.png">
@@ -162,6 +169,7 @@
     if (recipe.name) {
       text('title', recipe.name);
       document.title = recipe.name + ' – HAMSTi';
+      document.querySelector('meta[property="og:title"]').content = recipe.name;
     }
     if (recipe.senderName) {
       text('eyebrow', recipe.senderName + ' hat dir ein Rezept geschickt');
