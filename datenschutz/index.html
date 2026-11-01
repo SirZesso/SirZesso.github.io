@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Datenschutz – HAMSTi</title>
+<meta name="description" content="Wie HAMSTi mit deinen Daten umgeht: kein eigener Server, kein Konto, kein Tracking.">
+<meta name="theme-color" content="#2f5f86">
+<link rel="icon" type="image/png" href="/app-icon.png">
+<link rel="apple-touch-icon" href="/app-icon.png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --ocean-top: #4078aa;
+    --ocean-bottom: #0d474b;
+    --page: #eef3f7;
+    --card: #ffffff;
+    --text: #1c1c1e;
+    --secondary: #6b7280;
+    --fill: rgba(120, 120, 128, .12);
+    --separator: rgba(60, 60, 67, .18);
+    --accent: #2f6fa8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #000000;
+      --card: #1c1c1e;
+      --text: #f2f2f7;
+      --secondary: #9a9aa1;
+      --fill: rgba(120, 120, 128, .24);
+      --separator: rgba(84, 84, 88, .6);
+      --accent: #6aa7dc;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
+    padding: calc(2rem + env(safe-area-inset-top)) 1rem 4.5rem;
+    text-align: center;
+    color: #fff;
+  }
+  header a { color: inherit; text-decoration: none; }
+  header img {
+    width: 72px; height: 72px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  }
+  header .app-name { font-size: 1.1rem; font-weight: 600; margin: .6rem 0 0; }
+  header h1 { font-size: 1.9rem; line-height: 1.2; font-weight: 700; margin: .35rem 0 0; }
+  header .updated { font-size: .9rem; opacity: .8; margin: .35rem 0 0; }
+  main {
+    max-width: 42rem;
+    margin: -3rem auto 0;
+    padding: 0 1rem calc(2rem + env(safe-area-inset-bottom));
+  }
+  .card {
+    background: var(--card);
+    border-radius: 22px;
+    padding: 1.5rem 1.25rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+    margin-bottom: 1rem;
+  }
+  .summary h2 { margin-top: 0; }
+  .summary ul { list-style: none; padding: 0; margin: 0; }
+  .summary li {
+    padding: .7rem 0;
+    border-top: 1px solid var(--separator);
+  }
+  .summary li:first-child { border-top: none; padding-top: 0; }
+  .summary li strong { display: block; }
+  .summary li span { color: var(--secondary); font-size: .95rem; }
+  h2 { font-size: 1.3rem; line-height: 1.25; font-weight: 700; margin: 2rem 0 .5rem; }
+  .card > h2:first-child { margin-top: 0; }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 .35rem; }
+  p, li { overflow-wrap: anywhere; }
+  p { margin: 0 0 .85rem; }
+  ul { padding-left: 1.25rem; margin: 0 0 .85rem; }
+  li { margin-bottom: .35rem; }
+  a { color: var(--accent); }
+  .note { font-size: .95rem; color: var(--secondary); }
+  address { font-style: normal; margin: 0 0 .85rem; }
+  footer { text-align: center; font-size: .85rem; color: var(--secondary); margin-top: 1.5rem; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">
+    <img src="/app-icon.png" alt="" width="72" height="72">
+    <p class="app-name">HAMSTi</p>
+  </a>
+  <h1>Datenschutzerklärung</h1>
+  <p class="updated">Stand: 1. November 2026</p>
+</header>
+<main>
+  <section class="card summary" aria-labelledby="kurz">
+    <h2 id="kurz">Kurz gesagt</h2>
+    <ul>
+      <li><strong>Kein Konto, kein eigener Server</strong><span>Deine Aufgaben, Menüs und Rezepte liegen auf deinen Geräten und in deiner eigenen iCloud. Ich als Entwickler habe keinen Zugriff darauf.</span></li>
+      <li><strong>Kein Tracking, keine Werbung, keine Analyse-Tools</strong><span>HAMSTi enthält keine Werbe-, Tracking- oder Statistik-Software von Drittanbietern.</span></li>
+      <li><strong>Künstliche Intelligenz auf dem Gerät</strong><span>Rezepte zusammenfassen, Fotos lesen und Bilder erzeugen geschieht mit Apple Intelligence direkt auf deinem Gerät.</span></li>
+      <li><strong>Geteilte Rezepte bleiben im Link</strong><span>Das Rezept steckt im Link selbst. Diese Website bekommt es nicht zu sehen und speichert nichts.</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2 id="verantwortlich">1. Wer ist verantwortlich?</h2>
+    <p>Verantwortlich für die App HAMSTi und diese Website ist:</p>
+    <address>
+      Yannic Ziegler<br>
+      <!-- TODO vor dem Merge: Postadresse (Strasse, PLZ Ort) und E-Mail-Adresse eintragen -->
+      [Strasse Nr.]<br>
+      [PLZ Ort]<br>
+      Schweiz<br>
+      E-Mail: [E-Mail-Adresse]
+    </address>
+    <p>HAMSTi ist ein privates Projekt einer Einzelperson. Bei Fragen zum Datenschutz oder um deine Rechte auszuüben, schreib mir einfach an die genannte E-Mail-Adresse.</p>
+    <p>Diese Erklärung richtet sich nach dem Schweizer Datenschutzgesetz (DSG) und, soweit anwendbar, nach der Datenschutz-Grundverordnung der EU (DSGVO).</p>
+
+    <h2 id="app">2. Die App HAMSTi</h2>
+    <p>HAMSTi gibt es für iPhone, iPad, Apple Watch und Apple TV. Die App hilft, Aufgaben und den Menüplan im Haushalt zu organisieren. Ich betreibe dafür keinen eigenen Server, und du brauchst kein Konto bei mir.</p>
+
+    <h3>Deine Daten in iCloud</h3>
+    <p>Alles, was du in HAMSTi anlegst, speichert die App auf deinem Gerät und synchronisiert es über Apples iCloud (CloudKit) in deiner privaten iCloud-Datenbank. Dazu gehören:</p>
+    <ul>
+      <li>Haushalt: Name, Einzugsdatum</li>
+      <li>Mitglieder: Anzeigename, Emoji und Farbe, die du selbst wählst, sowie eine anonyme, von Apple vergebene Kennung, damit die App dich auf deinen Geräten wiedererkennt</li>
+      <li>Aufgaben: Titel, Symbol, Fälligkeit, Rhythmus, Zuständigkeit, geschätzte Dauer und der Verlauf, wer wann was erledigt hat (mit optionaler Notiz)</li>
+      <li>Menüs und Rezepte: Name, Zutaten, Zubereitung, Zeiten, Portionen, Notizen, Fotos, KI-Bilder und die Webadresse, aus der ein Rezept importiert wurde</li>
+      <li>Menüplan: welches Menü an welchem Tag geplant ist</li>
+    </ul>
+    <p>Diese Daten liegen bei Apple, verschlüsselt und deinem Apple-Account zugeordnet. Ich habe darauf keinen Zugriff. Für die Speicherung in iCloud gelten die <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von Apple</a> und deine iCloud-Einstellungen. Wenn iCloud ausgeschaltet ist, bleiben die Daten nur auf dem Gerät.</p>
+
+    <h3>Einen Haushalt teilen</h3>
+    <p>Du kannst deinen Haushalt über die iCloud-Freigabe von Apple mit anderen Personen teilen. Die Einladung verschickst du selbst, zum Beispiel per Nachrichten oder Mail. Wer die Einladung annimmt, sieht und bearbeitet die Daten dieses Haushalts, einschliesslich der Anzeigenamen, Emojis und Farben der anderen Mitglieder und wer welche Aufgabe erledigt hat. Die geteilten Daten liegen in der iCloud der Person, die den Haushalt erstellt hat. Du kannst die Freigabe jederzeit in der App beenden.</p>
+
+    <h3>Apple Watch, Widgets und Apple TV</h3>
+    <p>Die Apple Watch bekommt eine kleine Übersicht deiner Aufgaben und Menüs direkt von deinem iPhone (über Apples WatchConnectivity, ohne Umweg über das Internet). Widgets lesen die Daten auf dem Gerät. Die Apple-TV-App lädt den Haushalt aus deiner iCloud, genau wie iPhone und iPad.</p>
+
+    <h3>Rezepte aus dem Web importieren</h3>
+    <p>Wenn du die Webadresse eines Rezepts in HAMSTi einfügst, ruft die App diese Seite und ihr Rezeptfoto direkt von deinem Gerät aus ab, wie ein Browser. Die Website erfährt dabei, wie bei jedem Seitenaufruf, deine IP-Adresse und technische Angaben zum Abruf. Für diese Website gilt die Datenschutzerklärung ihres Betreibers. Ich erhalte davon nichts.</p>
+
+    <h3>Kamera und Fotos</h3>
+    <p>HAMSTi nutzt die Kamera oder deine Foto-Mediathek nur, wenn du selbst ein Foto aufnimmst oder auswählst, etwa um ein Rezept abzufotografieren oder ein Menü zu bebildern. Die Kamera fragt vorher um Erlaubnis. Bei der Foto-Auswahl siehst du nur die Fotos, die du aktiv auswählst; HAMSTi bekommt keinen Zugriff auf deine ganze Mediathek. Ausgewählte Fotos werden mit dem Menü in deiner iCloud gespeichert.</p>
+
+    <h3>Apple Intelligence</h3>
+    <p>Wenn dein Gerät Apple Intelligence unterstützt, nutzt HAMSTi Apples Sprach- und Bildmodelle, um importierte Rezepte zu ordnen, Text aus Rezeptfotos zu lesen, Menüs zu verschlagworten und Bilder für Menüs zu erzeugen. Diese Verarbeitung läuft auf deinem Gerät. HAMSTi schickt dafür keine Daten an mich oder an andere Anbieter.</p>
+
+    <h3>Siri, Kurzbefehle und Spotlight</h3>
+    <p>Du kannst Aufgaben und Menüs mit Siri und Kurzbefehlen abfragen. Damit Siri und die Suche deine Aufgaben und Menüs finden, meldet HAMSTi deren Namen an das System deines Geräts. Wie Apple Siri-Anfragen verarbeitet, regelt die Datenschutzrichtlinie von Apple und deine Einstellungen für Siri.</p>
+
+    <h3>Mitteilungen</h3>
+    <p>Erinnerungen an fällige Aufgaben plant die App lokal auf deinem Gerät. Ich betreibe keinen Server, der Mitteilungen verschickt. Wenn sich in einem geteilten Haushalt etwas ändert, kann iCloud dein Gerät über Apples Push-Dienst im Hintergrund wecken, damit die App sich aktualisiert. Deine Einstellungen für Mitteilungen bleiben auf dem Gerät und werden nicht synchronisiert.</p>
+
+    <h3>Rezepte per Link teilen</h3>
+    <p>Mit „Rezept senden“ erzeugt HAMSTi einen Link, in dem das Rezept selbst steckt: Name, Emoji, Notizen, Zutaten, Zubereitung, Zeiten, Portionen, Kategorien und als Absender dein Anzeigename mit Emoji und Farbe. Bei Rezepten, die aus dem Web importiert wurden, enthält der Link statt des Rezepts nur einen Verweis auf die Originalseite. Fotos gehen nicht mit. Du entscheidest, wem du den Link schickst. Wer den Link hat, kann das Rezept lesen.</p>
+    <p>Das Rezept steht im Teil des Links nach dem Zeichen „#“. Diesen Teil schickt ein Browser nie an den Server. Öffnet jemand den Link ohne HAMSTi, zeigt diese Website Name und Absender an, indem sie den Link im Browser der Person ausliest. Das Rezept wird dabei weder an diese Website übertragen noch gespeichert. Hat die Person HAMSTi, öffnet der Link direkt die App.</p>
+    <p>Messenger wie Nachrichten können für den Link eine Vorschau laden. Dabei rufen sie die Seite ohne den Teil nach dem „#“ ab und sehen nur das allgemeine Vorschaubild.</p>
+
+    <h3>Was ich von Apple erhalte</h3>
+    <p>Als Entwickler bekomme ich über App Store Connect und TestFlight von Apple zusammengefasste Statistiken (zum Beispiel Anzahl Downloads) und, falls du der Weitergabe an Entwickler zugestimmt hast, Absturzberichte und Rückmeldungen, die du über TestFlight sendest. Diese Angaben dienen nur dazu, Fehler zu beheben und die App zu verbessern. Welche Daten Apple dabei weitergibt, steuerst du in den Einstellungen deines Geräts unter „Datenschutz &amp; Sicherheit“ → „Analyse &amp; Verbesserungen“.</p>
+
+    <h2 id="website">3. Diese Website</h2>
+    <p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf einer Seite verarbeitet GitHub technisch notwendige Daten, insbesondere deine IP-Adresse, Datum und Uhrzeit, die aufgerufene Adresse (ohne den Teil nach dem „#“) sowie Angaben zu Browser und Betriebssystem. GitHub nutzt diese Daten, um die Website auszuliefern und vor Missbrauch zu schützen. Details findest du in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p>
+    <p>Die Website setzt keine Cookies, verwendet keine Analyse- oder Tracking-Werkzeuge und lädt keine Inhalte von Drittanbietern, etwa Schriften oder Skripte. Formulare gibt es keine.</p>
+    <p class="note">Später soll die Website unter hamsti.ch bei einem Schweizer Hosting-Anbieter laufen. Diese Erklärung wird dann entsprechend angepasst.</p>
+
+    <h2 id="rechtsgrundlagen">4. Rechtsgrundlagen</h2>
+    <p>Soweit die DSGVO anwendbar ist, verarbeite ich Personendaten auf folgenden Grundlagen:</p>
+    <ul>
+      <li>Bereitstellung der App-Funktionen, die du nutzt (Art. 6 Abs. 1 lit. b DSGVO)</li>
+      <li>Betrieb und Sicherheit der Website sowie Fehlerbehebung anhand von Absturzberichten (berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO)</li>
+      <li>Kamera, Mitteilungen und Absturzberichte nur mit deiner Einwilligung über die Systemabfragen von Apple (Art. 6 Abs. 1 lit. a DSGVO); du kannst sie jederzeit in den Einstellungen widerrufen</li>
+    </ul>
+
+    <h2 id="ausland">5. Daten im Ausland</h2>
+    <p>Apple und GitHub verarbeiten Daten auch in den USA und anderen Ländern. Beide Unternehmen sind nach dem Data Privacy Framework zwischen der EU, der Schweiz und den USA zertifiziert und setzen zusätzlich Standardvertragsklauseln ein. Damit gilt ein angemessener Schutz für diese Übermittlungen.</p>
+
+    <h2 id="dauer">6. Wie lange Daten gespeichert werden</h2>
+    <p>Deine App-Daten bleiben so lange in deiner iCloud, bis du sie löschst. Du kannst einzelne Einträge oder einen ganzen Haushalt in der App löschen. Alle Daten von HAMSTi in iCloud löschst du in den Einstellungen deines Geräts unter deinem Namen → „iCloud“ → „Speicher verwalten“ → „HAMSTi“. Wenn du die App löschst, entfernt das System die Daten auf diesem Gerät. Wie lange GitHub und Apple technische Daten aufbewahren, regeln ihre Datenschutzrichtlinien.</p>
+
+    <h2 id="rechte">7. Deine Rechte</h2>
+    <p>Du hast das Recht auf Auskunft über deine Personendaten, auf Berichtigung, Löschung und Einschränkung der Bearbeitung, auf Datenherausgabe beziehungsweise Datenübertragbarkeit und, wo eine Verarbeitung auf berechtigtem Interesse beruht, auf Widerspruch. Eine erteilte Einwilligung kannst du jederzeit widerrufen.</p>
+    <p>Weil deine App-Daten in deiner eigenen iCloud liegen, kannst du die meisten dieser Rechte direkt in der App oder in den iCloud-Einstellungen ausüben. Ich selbst habe keine Kopie deiner Daten. Für alles andere schreib mir an die oben genannte Adresse.</p>
+    <p>Du kannst dich ausserdem bei einer Aufsichtsbehörde beschweren: in der Schweiz beim <a href="https://www.edoeb.admin.ch/">Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB)</a>, in der EU bei der Datenschutzbehörde deines Wohnsitzlandes.</p>
+
+    <h2 id="aenderungen">8. Änderungen</h2>
+    <p>Wenn HAMSTi neue Funktionen bekommt, die Daten anders verarbeiten, passe ich diese Erklärung an. Es gilt die jeweils hier veröffentlichte Fassung mit dem Datum oben.</p>
+  </section>
+
+  <footer><a href="/">HAMSTi</a> für iPhone, iPad, Apple Watch und Apple TV</footer>
+</main>
+</body>
+</html>
