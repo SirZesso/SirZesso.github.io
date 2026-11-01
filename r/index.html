@@ -2,37 +2,149 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ein Rezept für dich – HAMSTi</title>
+<meta name="description" content="Jemand hat dir ein Rezept aus HAMSTi geschickt.">
 <meta property="og:title" content="Ein Rezept für dich">
-<meta property="og:description" content="Öffne es in HAMSTi und plant es gleich für eure Woche ein.">
-<meta property="og:image" content="/hamsti-share.png">
-<meta name="apple-itunes-app" content="app-id=APP_STORE_ID">
+<meta property="og:description" content="Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.">
+<meta property="og:image" content="/app-icon.png">
+<meta name="theme-color" content="#2f5f86">
+<link rel="icon" type="image/png" href="/app-icon.png">
+<link rel="apple-touch-icon" href="/app-icon.png">
+<!-- Sobald HAMSTi im App Store ist: Smart App Banner einschalten.
+<meta name="apple-itunes-app" content="app-id=APP_STORE_ID"> -->
 <style>
-  :root { color-scheme: light dark; }
-  body { font: -apple-system-body; font-family: -apple-system, system-ui, sans-serif; margin: 0;
-         min-height: 100vh; display: flex; align-items: center; justify-content: center;
-         background: Canvas; color: CanvasText; }
-  main { max-width: 26rem; padding: 2rem 1.5rem; text-align: center; }
-  .emoji { font-size: 4rem; line-height: 1; margin-bottom: 1rem; }
-  h1 { font: -apple-system-title1; font-weight: 700; margin: 0 0 .5rem; }
-  p { color: GrayText; margin: 0 0 1.5rem; }
-  a.button { display: block; padding: .9rem 1rem; border-radius: 14px; text-decoration: none;
-             font-weight: 600; margin-bottom: .75rem; }
-  a.primary { background: #2f5fd0; color: white; }
-  a.secondary { background: rgba(127,127,127,.15); color: inherit; }
+  :root {
+    color-scheme: light dark;
+    --ocean-top: #4078aa;
+    --ocean-bottom: #0d474b;
+    --page: #eef3f7;
+    --card: #ffffff;
+    --text: #1c1c1e;
+    --secondary: #6b7280;
+    --fill: rgba(120, 120, 128, .12);
+    --accent: #2f6fa8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #000000;
+      --card: #1c1c1e;
+      --text: #f2f2f7;
+      --secondary: #9a9aa1;
+      --fill: rgba(120, 120, 128, .24);
+      --accent: #6aa7dc;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, "Helvetica Neue", sans-serif;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--text);
+    background: var(--page);
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
+    padding: calc(2.5rem + env(safe-area-inset-top)) 1rem 5.5rem;
+    text-align: center;
+    color: #fff;
+  }
+  header img {
+    width: 96px; height: 96px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+  header .app-name { font-size: 1.25rem; font-weight: 600; margin: .75rem 0 0; }
+  header .tagline { font-size: .95rem; opacity: .8; margin: .15rem 0 0; }
+  main {
+    max-width: 28rem;
+    margin: -4rem auto 0;
+    padding: 0 1rem calc(2rem + env(safe-area-inset-bottom));
+  }
+  .card {
+    background: var(--card);
+    border-radius: 22px;
+    padding: 1.75rem 1.25rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+  }
+  .emoji {
+    width: 84px; height: 84px;
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    background: var(--fill);
+    border-radius: 50%;
+  }
+  .eyebrow { font-size: .9rem; color: var(--secondary); margin: 0 0 .25rem; }
+  h1 { font-size: 1.75rem; line-height: 1.2; font-weight: 700; margin: 0 0 .75rem; overflow-wrap: anywhere; }
+  .card p { color: var(--secondary); margin: 0 0 1.5rem; }
+  a.button {
+    display: block;
+    padding: .95rem 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    background: #2f6fa8;
+    color: #fff;
+  }
+  a.button:active { opacity: .8; }
+  .hint { font-size: .85rem; color: var(--secondary); margin: .75rem 0 0; }
+  .store {
+    margin-top: 1rem;
+    background: var(--card);
+    border-radius: 22px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .store h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .35rem; }
+  .store p { font-size: .95rem; color: var(--secondary); margin: 0 0 1rem; }
+  .soon {
+    display: inline-block;
+    font-size: .8rem; font-weight: 600;
+    color: var(--accent);
+    background: var(--fill);
+    border-radius: 999px;
+    padding: .2rem .65rem;
+    margin-bottom: .6rem;
+  }
+  .badge { display: block; margin: 0 auto; height: 44px; width: auto; }
+  footer { text-align: center; font-size: .8rem; color: var(--secondary); margin-top: 1.5rem; }
 </style>
 </head>
 <body>
+<header>
+  <img src="/app-icon.png" alt="HAMSTi App-Icon" width="96" height="96">
+  <p class="app-name">HAMSTi</p>
+  <p class="tagline">Aufgaben und Menüplan für euren Haushalt</p>
+</header>
 <main>
   <!-- Statische Seite: das Rezept steckt im Fragment (#…) des Links und
        erreicht nie einen Server. Angezeigt werden nur Emoji, Name und
        Absender, die Inhalte öffnet HAMSTi. -->
-  <div class="emoji" id="emoji">🐹</div>
-  <h1 id="title">Ein Rezept für dich</h1>
-  <p id="subtitle">Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.</p>
-  <a class="button primary" id="open" href="hamsti://recipe">In HAMSTi öffnen</a>
-  <a class="button secondary" href="https://apps.apple.com/app/idAPP_STORE_ID">HAMSTi laden</a>
+  <section class="card">
+    <div class="emoji" id="emoji" aria-hidden="true">🍽️</div>
+    <p class="eyebrow" id="eyebrow">Ein Rezept für dich</p>
+    <h1 id="title">Rezept aus HAMSTi</h1>
+    <p id="subtitle">Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.</p>
+    <a class="button" id="open" href="hamsti://recipe">In HAMSTi öffnen</a>
+    <p class="hint">Funktioniert auf dem iPhone, wenn HAMSTi installiert ist.</p>
+  </section>
+
+  <section class="store">
+    <span class="soon">Bald im App Store</span>
+    <h2>Noch kein HAMSTi?</h2>
+    <p>HAMSTi ist im Moment nur über TestFlight erhältlich. Frag die Person, die dir das Rezept geschickt hat, nach einer Einladung.</p>
+    <!-- Offizielles Apple-Badge, unverändert. Sobald die App live ist,
+         in einen Link auf https://apps.apple.com/app/idAPP_STORE_ID packen
+         und den Hinweis "Bald im App Store" entfernen. -->
+    <img class="badge" src="/app-store-badge.svg" alt="Laden im App Store" width="132" height="44">
+  </section>
+
+  <footer>HAMSTi für iPhone, iPad, Apple Watch und Apple TV</footer>
 </main>
 <script>
 (async () => {
@@ -52,7 +164,7 @@
       document.title = recipe.name + ' – HAMSTi';
     }
     if (recipe.senderName) {
-      text('subtitle', recipe.senderName + ' hat dir dieses Rezept geschickt. Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.');
+      text('eyebrow', recipe.senderName + ' hat dir ein Rezept geschickt');
     }
   } catch (error) {
     // Unlesbarer Link: die allgemeine Seite bleibt stehen.

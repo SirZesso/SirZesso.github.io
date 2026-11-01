@@ -12,7 +12,7 @@ Statische Webseite hinter den Links von "Rezept senden", ausgeliefert auf `https
 1. Im Hosting-Panel die Domain `hamsti.ch` aufschalten und ein SSL-Zertifikat (Let's Encrypt) aktivieren. Liegt die Domain bei einem anderen Anbieter, dort die DNS-Einträge (A/AAAA) oder Nameserver auf das Hosting zeigen lassen.
 2. Den **Inhalt** von `web/` per FTP/SFTP ins Webverzeichnis der Domain laden: `.well-known/`, `r/`, `.htaccess`. Ordner und Dateien mit Punkt am Anfang sind in vielen FTP-Programmen versteckt, versteckte Dateien einblenden.
 3. Prüfen: `curl -i https://hamsti.ch/.well-known/apple-app-site-association` liefert Status 200, `content-type: application/json` und keine Weiterleitung. `.htaccess` setzt den Typ unter Apache.
-4. `APP_STORE_ID` in `r/index.html` durch die ID aus App Store Connect ersetzen und `hamsti-share.png` (Vorschaubild für Nachrichten, 1200 × 630) in `web/` ablegen.
+4. `APP_STORE_ID` in `r/index.html` durch die ID aus App Store Connect ersetzen, das Smart-App-Banner-Meta-Tag einkommentieren, das Badge verlinken und den Hinweis „Bald im App Store“ entfernen. `app-icon.png` ist aus `HAMSTi App Icon.icon` gerendert, `app-store-badge.svg` ist das unveränderte Badge aus Apples Marketing-Ressourcen.
 
 Ein Umzug zu einem anderen Hoster ist unkritisch: Dateien kopieren, DNS umstellen. Die Links bleiben gültig, solange die Domain gleich bleibt.
 
