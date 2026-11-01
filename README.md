@@ -3,6 +3,7 @@
 Statische Webseite hinter den Links von "Rezept senden", ausgeliefert auf `https://hamsti.ch` (`RecipeLink.webHost`, `applinks:hamsti.ch` in `HAMSTi/HAMSTi.entitlements`).
 
 - `.well-known/apple-app-site-association` — macht `https://hamsti.ch/r` zum Universal Link, der HAMSTi öffnet (Team `3PS8M5VAAE`). Muss per HTTPS, ohne Weiterleitung und als `application/json` kommen (`.htaccess` für Apache, `_headers` für Cloudflare Pages/Netlify).
+- `index.html` — Landingpage (#143): Hamsti, Screenshots, Funktionen, Datenschutz-Hinweis, App-Store-Badge mit „Bald im App Store“. Bilder in `img/` (WebP, aus `AppStore/latest/screenshots/de` und den Ebenen von `HAMSTi App Icon.icon` verkleinert), `og-card.jpg` (1200 × 630) ist das Vorschaubild für Links auf die Startseite.
 - `r/index.html` — für alle ohne HAMSTi: zeigt Emoji, Name und Absender aus dem Link und führt zum Download. Das Rezept steckt im Fragment (`#…`), das der Browser nie an den Server schickt. Die Seite speichert nichts und zeigt keine Zutaten oder Schritte.
 
 ## Einrichten
