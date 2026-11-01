@@ -172,7 +172,8 @@
       document.querySelector('meta[property="og:title"]').content = recipe.name;
     }
     if (recipe.senderName) {
-      text('eyebrow', recipe.senderName + ' hat dir ein Rezept geschickt');
+      const avatar = recipe.senderEmoji ? recipe.senderEmoji + ' ' : '';
+      text('eyebrow', avatar + recipe.senderName + ' hat dir ein Rezept geschickt');
     }
   } catch (error) {
     // Unlesbarer Link: die allgemeine Seite bleibt stehen.
