@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["3PS8M5VAAE.ch.yannicziegler.HAMSTi"],
+        "components": [
+          { "/": "/r", "comment": "Geschicktes Rezept (#137), Rezept im Fragment" }
+        ]
+      }
+    ]
+  }
+}

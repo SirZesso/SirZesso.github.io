@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ein Rezept für dich – HAMSTi</title>
+<meta property="og:title" content="Ein Rezept für dich">
+<meta property="og:description" content="Öffne es in HAMSTi und plant es gleich für eure Woche ein.">
+<meta property="og:image" content="/hamsti-share.png">
+<meta name="apple-itunes-app" content="app-id=APP_STORE_ID">
+<style>
+  :root { color-scheme: light dark; }
+  body { font: -apple-system-body; font-family: -apple-system, system-ui, sans-serif; margin: 0;
+         min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: Canvas; color: CanvasText; }
+  main { max-width: 26rem; padding: 2rem 1.5rem; text-align: center; }
+  .emoji { font-size: 4rem; line-height: 1; margin-bottom: 1rem; }
+  h1 { font: -apple-system-title1; font-weight: 700; margin: 0 0 .5rem; }
+  p { color: GrayText; margin: 0 0 1.5rem; }
+  a.button { display: block; padding: .9rem 1rem; border-radius: 14px; text-decoration: none;
+             font-weight: 600; margin-bottom: .75rem; }
+  a.primary { background: #2f5fd0; color: white; }
+  a.secondary { background: rgba(127,127,127,.15); color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <!-- Statische Seite: das Rezept steckt im Fragment (#…) des Links und
+       erreicht nie einen Server. Angezeigt werden nur Emoji, Name und
+       Absender, die Inhalte öffnet HAMSTi. -->
+  <div class="emoji" id="emoji">🐹</div>
+  <h1 id="title">Ein Rezept für dich</h1>
+  <p id="subtitle">Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.</p>
+  <a class="button primary" id="open" href="hamsti://recipe">In HAMSTi öffnen</a>
+  <a class="button secondary" href="https://apps.apple.com/app/idAPP_STORE_ID">HAMSTi laden</a>
+</main>
+<script>
+(async () => {
+  const fragment = location.hash.slice(1);
+  if (!fragment) return;
+  document.getElementById('open').href = 'hamsti://recipe#' + fragment;
+  try {
+    let base64 = fragment.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) base64 += '=';
+    const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    const recipe = JSON.parse(await new Response(stream).text());
+    const text = (id, value) => { document.getElementById(id).textContent = value; };
+    if (recipe.emoji) text('emoji', recipe.emoji);
+    if (recipe.name) {
+      text('title', recipe.name);
+      document.title = recipe.name + ' – HAMSTi';
+    }
+    if (recipe.senderName) {
+      text('subtitle', recipe.senderName + ' hat dir dieses Rezept geschickt. Öffne es in HAMSTi und übernimm es mit einem Tipp in deinen Haushalt.');
+    }
+  } catch (error) {
+    // Unlesbarer Link: die allgemeine Seite bleibt stehen.
+  }
+})();
+</script>
+</body>
+</html>
