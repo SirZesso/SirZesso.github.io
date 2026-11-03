@@ -1,10 +1,29 @@
-# Rezept-Links (#137)
+# hamsti.ch
 
-Statische Webseite hinter den Links von "Rezept senden", ausgeliefert auf `https://hamsti.ch` (`RecipeLink.webHost`, `applinks:hamsti.ch` in `HAMSTi/HAMSTi.entitlements`).
+Statische Website von HAMSTi (Startseite, Datenschutz, Impressum und die Seite hinter den Links von „Rezept senden“), ausgeliefert auf `https://hamsti.ch` (`RecipeLink.webHost`, `applinks:hamsti.ch` in `HAMSTi/HAMSTi.entitlements`).
 
 - `.well-known/apple-app-site-association` — macht `https://hamsti.ch/r` zum Universal Link, der HAMSTi öffnet (Team `3PS8M5VAAE`). Muss per HTTPS, ohne Weiterleitung und als `application/json` kommen (`.htaccess` für Apache, `_headers` für Cloudflare Pages/Netlify).
 - `index.html` — Landingpage (#143): Hamsti, Screenshots, Funktionen, Datenschutz-Hinweis, App-Store-Badge mit „Bald im App Store“. Bilder in `img/` (WebP, aus `AppStore/latest/screenshots/de` und den Ebenen von `HAMSTi App Icon.icon` verkleinert), `og-card.jpg` (1200 × 630) ist das Vorschaubild für Links auf die Startseite.
 - `r/index.html` — für alle ohne HAMSTi: zeigt Emoji, Name und Absender aus dem Link und führt zum Download. Das Rezept steckt im Fragment (`#…`), das der Browser nie an den Server schickt. Die Seite speichert nichts und zeigt keine Zutaten oder Schritte.
+- `datenschutz/`, `impressum/` — Rechtliches. `404.html` — Fehlerseite, liefert GitHub Pages für unbekannte Adressen aus.
+
+## Aufbau und Design
+
+Alle Seiten teilen `assets/site.css` (Systemschrift, Farben wie in der App, hell und dunkel) und haben denselben Kopf (Marke, „Funktionen“, „Datenschutz“) und Fuss (Start, Datenschutz, Impressum, Kontakt, Sicherheitslücke melden). Kein Build-Schritt: Kopf und Fuss stehen in jeder Seite als HTML, bei einer Änderung in allen Seiten (`index.html`, `datenschutz/`, `impressum/`, `r/`, `404.html`) nachführen. Seitenspezifische Styles stehen in eigenen Abschnitten am Ende von `site.css`.
+
+## Suchmaschinen (SEO)
+
+Jede Seite hat im Kopf: `title`, `description`, `robots`, `canonical`, `hreflang` (de-CH, x-default), Open Graph und Twitter Card (absolute Bild-URLs), `theme-color`, Icons und JSON-LD (`Organization`, `WebSite`, auf der Startseite zusätzlich `MobileApplication`, auf Unterseiten `BreadcrumbList`). Neue Seite: Kopf von `impressum/index.html` übernehmen und in `sitemap.xml` eintragen.
+
+- `robots.txt` erlaubt alles und nennt die Sitemap. `r/` und `404.html` tragen `noindex` und stehen nicht in der Sitemap.
+- `favicon.ico`, `apple-touch-icon.png` (180 px, ohne transparente Ecken), `icon-192.png`, `icon-512.png` und `site.webmanifest` sind aus `app-icon.png` erzeugt.
+- Sobald HAMSTi im App Store ist: im JSON-LD der Startseite `offers` (Preis) und `installUrl`/`sameAs` mit der App-Store-Adresse ergänzen, sonst zeigt Google kein App-Rich-Result.
+
+**Einmalig von Hand:** In der [Google Search Console](https://search.google.com/search-console) eine Domain-Property `hamsti.ch` anlegen, den TXT-Eintrag bei Hostpoint ins DNS setzen, bestätigen und unter „Sitemaps“ `https://hamsti.ch/sitemap.xml` einreichen. In den [Bing Webmaster Tools](https://www.bing.com/webmasters) die Website aus der Search Console importieren (deckt auch DuckDuckGo und Ecosia ab).
+
+## Sicherheit
+
+`.well-known/security.txt` nach [RFC 9116](https://www.rfc-editor.org/rfc/rfc9116): Meldungen an `security@hamsti.ch` (dank Catch-all in iCloud+ ohne eigenes Postfach). **`Expires` jedes Jahr vor Ablauf nachführen** (aktuell 1. November 2027), sonst gilt die Datei als veraltet.
 
 ## Einrichten
 

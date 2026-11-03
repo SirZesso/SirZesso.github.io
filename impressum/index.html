@@ -1,134 +1,177 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Impressum – HAMSTi</title>
-<meta name="description" content="Impressum und Kontakt für die App HAMSTi.">
-<meta name="theme-color" content="#2f5f86">
-<link rel="icon" type="image/png" href="/app-icon.png">
-<link rel="apple-touch-icon" href="/app-icon.png">
-<style>
-  :root {
-    color-scheme: light dark;
-    --ocean-top: #4078aa;
-    --ocean-bottom: #0d474b;
-    --page: #eef3f7;
-    --card: #ffffff;
-    --text: #1c1c1e;
-    --secondary: #5f6672;
-    --separator: rgba(60, 60, 67, .18);
-    --accent: #2f6fa8;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --page: #000000;
-      --card: #1c1c1e;
-      --text: #f2f2f7;
-      --secondary: #9a9aa1;
-      --separator: rgba(84, 84, 88, .6);
-      --accent: #6aa7dc;
+<meta name="description" content="Impressum von hamsti.ch und der App HAMSTi: Anbieter Yannic Ziegler, Bülach, Schweiz. Kontakt per E-Mail an kontakt@hamsti.ch.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://hamsti.ch/impressum/">
+<link rel="alternate" hreflang="de-CH" href="https://hamsti.ch/impressum/">
+<link rel="alternate" hreflang="x-default" href="https://hamsti.ch/impressum/">
+<meta name="author" content="Yannic Ziegler">
+<!-- Vorschau in Nachrichten, WhatsApp, Mastodon, X und Co. URLs absolut, sonst kein Bild. -->
+<meta property="og:site_name" content="HAMSTi">
+<meta property="og:locale" content="de_CH">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Impressum – HAMSTi">
+<meta property="og:description" content="Impressum von hamsti.ch und der App HAMSTi: Anbieter Yannic Ziegler, Bülach, Schweiz. Kontakt per E-Mail an kontakt@hamsti.ch.">
+<meta property="og:url" content="https://hamsti.ch/impressum/">
+<meta property="og:image" content="https://hamsti.ch/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HAMSTi-Hamster mit Haus: Weniger Mental Load im Haushalt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#4078aa">
+<meta name="apple-mobile-web-app-title" content="HAMSTi">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/app-icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://hamsti.ch/impressum/",
+      "url": "https://hamsti.ch/impressum/",
+      "name": "Impressum",
+      "description": "Impressum von hamsti.ch und der App HAMSTi: Anbieter Yannic Ziegler, Bülach, Schweiz. Kontakt per E-Mail an kontakt@hamsti.ch.",
+      "inLanguage": "de-CH",
+      "isPartOf": {
+        "@id": "https://hamsti.ch/#website"
+      },
+      "publisher": {
+        "@id": "https://hamsti.ch/#organization"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HAMSTi",
+            "item": "https://hamsti.ch/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Impressum",
+            "item": "https://hamsti.ch/impressum/"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hamsti.ch/#website",
+      "url": "https://hamsti.ch/",
+      "name": "HAMSTi",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://hamsti.ch/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hamsti.ch/#organization",
+      "name": "HAMSTi",
+      "url": "https://hamsti.ch/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hamsti.ch/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "kontakt@hamsti.ch",
+      "founder": {
+        "@type": "Person",
+        "name": "Yannic Ziegler"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Feldspatgasse 3",
+        "postalCode": "8180",
+        "addressLocality": "Bülach",
+        "addressCountry": "CH"
+      }
     }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, system-ui, "Helvetica Neue", sans-serif;
-    font-size: 17px;
-    line-height: 1.45;
-    color: var(--text);
-    background: var(--page);
-    -webkit-font-smoothing: antialiased;
-  }
-  header {
-    background: linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
-    padding: calc(2rem + env(safe-area-inset-top)) 1rem 4.5rem;
-    text-align: center;
-    color: #fff;
-  }
-  header a { color: inherit; text-decoration: none; display: inline-block; }
-  header img {
-    width: 64px; height: 64px;
-    border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
-  }
-  header .app-name { font-size: 1.1rem; font-weight: 600; margin: .6rem 0 0; }
-  main {
-    max-width: 40rem;
-    margin: -3rem auto 0;
-    padding: 0 1rem calc(2rem + env(safe-area-inset-bottom));
-  }
-  .card {
-    background: var(--card);
-    border-radius: 22px;
-    padding: 1.5rem 1.25rem;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
-  }
-  h1 { font-size: 1.75rem; line-height: 1.2; font-weight: 700; margin: 0 0 1.25rem; }
-  h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .4rem; }
-  section + section {
-    border-top: 1px solid var(--separator);
-    margin-top: 1.25rem;
-    padding-top: 1.25rem;
-  }
-  p, address { margin: 0 0 .6rem; font-style: normal; }
-  p:last-child, address:last-child { margin-bottom: 0; }
-  .secondary { color: var(--secondary); font-size: .95rem; }
-  a { color: var(--accent); }
-  footer { text-align: center; font-size: .8rem; color: var(--secondary); margin-top: 1.5rem; }
-  footer a { color: inherit; }
-</style>
+  ]
+}
+</script>
 </head>
-<body>
-<header>
-  <a href="/">
-    <img src="/app-icon.png" alt="HAMSTi App-Icon" width="64" height="64">
-    <p class="app-name">HAMSTi</p>
-  </a>
+<body class="doc">
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="/">
+        <img src="/app-icon.png" alt="" width="36" height="36">
+        <span>HAMSTi</span>
+      </a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="/#funktionen">Funktionen</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="page-title">
+      <h1>Impressum</h1>
+      <p class="lead">Wer hinter HAMSTi und hamsti.ch steht und wie du mich erreichst.</p>
+    </div>
+  </div>
 </header>
-<main>
-  <article class="card">
-    <h1>Impressum</h1>
-
-    <section>
-      <h2>Anbieter</h2>
-      <address>
-        Yannic Ziegler<br>
-        Feldspatgasse 3<br>
-        8180 Bülach<br>
-        Schweiz
-      </address>
-    </section>
-
-    <section>
-      <h2>Kontakt</h2>
-      <p>E-Mail: <a href="mailto:kontakt@hamsti.ch">kontakt@hamsti.ch</a></p>
-      <p class="secondary">Fragen, Feedback und Support zur App HAMSTi bitte per E-Mail.</p>
-    </section>
-
-    <section>
-      <h2>Verantwortlich für den Inhalt</h2>
-      <p>Yannic Ziegler, Anschrift wie oben.</p>
-    </section>
-
-    <section>
-      <h2>Haftung für Inhalte</h2>
-      <p>Die Inhalte dieser Website und der App HAMSTi wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen.</p>
-    </section>
-
-    <section>
-      <h2>Haftung für Links</h2>
-      <p>Diese Website und die App HAMSTi enthalten Links zu externen Websites Dritter, etwa zu Rezept-Websites, deren Inhalte ausserhalb unseres Einflusses liegen. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstösse erkennbar. Werden uns Rechtsverletzungen bekannt, entfernen wir die betreffenden Links umgehend.</p>
-    </section>
-
-    <section>
-      <h2>Urheberrecht</h2>
-      <p>Texte, Bilder und Grafiken auf dieser Website sowie die App HAMSTi sind, soweit sie urheberrechtlich geschützt sind, ohne Zustimmung nicht zur Weiterverwendung freigegeben. Rezepte, die Nutzerinnen und Nutzer in HAMSTi erfassen oder teilen, gehören ihnen selbst. Apple, das Apple-Logo, iPhone und App Store sind Marken der Apple Inc.</p>
-    </section>
-  </article>
-
-  <footer>HAMSTi für iPhone, iPad, Apple Watch und Apple TV</footer>
+<main class="wrap" id="inhalt">
+  <section aria-label="Angaben">
+    <dl class="rows">
+      <div><dt>Anbieter</dt><dd>
+          <address>
+          Yannic Ziegler<br>
+          Feldspatgasse 3<br>
+          8180 Bülach<br>
+          Schweiz
+          </address>
+        </dd></div>
+      <div><dt>Kontakt</dt><dd>
+          <p>E-Mail: <a href="mailto:kontakt@hamsti.ch">kontakt@hamsti.ch</a></p>
+          <p class="note">Fragen, Feedback und Support zur App HAMSTi bitte per E-Mail.</p>
+        </dd></div>
+      <div><dt>Verantwortlich für den Inhalt</dt><dd>
+          <p>Yannic Ziegler, Anschrift wie oben.</p>
+        </dd></div>
+      <div><dt>Haftung für Inhalte</dt><dd>
+          <p>Die Inhalte dieser Website und der App HAMSTi wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen.</p>
+        </dd></div>
+      <div><dt>Haftung für Links</dt><dd>
+          <p>Diese Website und die App HAMSTi enthalten Links zu externen Websites Dritter, etwa zu Rezept-Websites, deren Inhalte ausserhalb unseres Einflusses liegen. Für diese fremden Inhalte ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstösse erkennbar. Werden uns Rechtsverletzungen bekannt, entfernen wir die betreffenden Links umgehend.</p>
+        </dd></div>
+      <div><dt>Urheberrecht</dt><dd>
+          <p>Texte, Bilder und Grafiken auf dieser Website sowie die App HAMSTi sind, soweit sie urheberrechtlich geschützt sind, ohne Zustimmung nicht zur Weiterverwendung freigegeben. Rezepte, die Nutzerinnen und Nutzer in HAMSTi erfassen oder teilen, gehören ihnen selbst. Apple, das Apple-Logo, iPhone und App Store sind Marken der Apple Inc.</p>
+        </dd></div>
+    </dl>
+  </section>
 </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="/">
+        <img src="/app-icon.png" alt="" width="28" height="28" loading="lazy">
+        <span>HAMSTi</span>
+      </a>
+      <p>Weniger Mental Load im Haushalt. Für iPhone, iPad, Apple Watch und Apple TV.</p>
+    </div>
+    <nav aria-label="Weitere Seiten">
+      <ul>
+        <li><a href="/">Start</a></li>
+        <li><a href="/datenschutz/">Datenschutz</a></li>
+        <li><a href="/impressum/">Impressum</a></li>
+        <li><a href="mailto:kontakt@hamsti.ch">Kontakt</a></li>
+        <li><a href="/.well-known/security.txt">Sicherheitslücke melden</a></li>
+      </ul>
+    </nav>
+    <p class="copyright">© 2026 Yannic Ziegler, Bülach</p>
+  </div>
+</footer>
 </body>
 </html>

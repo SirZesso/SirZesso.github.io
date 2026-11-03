@@ -1,0 +1,7 @@
+# hamsti.ch: alle Seiten dürfen in Suchmaschinen.
+# Rezept-Links (/r) sind persönlich und tragen "noindex" im Seitenkopf;
+# sie bleiben hier erlaubt, damit Suchmaschinen dieses noindex lesen können.
+User-agent: *
+Allow: /
+
+Sitemap: https://hamsti.ch/sitemap.xml

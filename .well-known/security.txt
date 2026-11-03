@@ -1,0 +1,11 @@
+# Sicherheitslücke in HAMSTi oder auf hamsti.ch gefunden? Danke, dass du sie meldest.
+# Found a vulnerability in the HAMSTi app or on hamsti.ch? Thanks for reporting it.
+# Bitte beschreibe, wie sich die Lücke nachvollziehen lässt, und gib mir Zeit,
+# sie zu beheben, bevor du sie veröffentlichst. Keine Tests gegen fremde Daten
+# oder Konten, kein Social Engineering, keine Last- oder Spam-Tests.
+# Format: RFC 9116. "Expires" vor Ablauf nachführen (höchstens ein Jahr voraus).
+
+Contact: mailto:security@hamsti.ch
+Expires: 2027-11-01T23:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://hamsti.ch/.well-known/security.txt
