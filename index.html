@@ -1,220 +1,149 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HAMSTi – Aufgaben und Menüplan für euren Haushalt</title>
-<meta name="description" content="HAMSTi hält euren Haushalt am Laufen: wiederkehrende Aufgaben, Menüplan und Rezepte an einem Ort, geteilt mit allen, die mit euch wohnen. Für iPhone, iPad, Apple Watch und Apple TV.">
+<title>HAMSTi – Haushalts-App gegen Mental Load</title>
+<meta name="description" content="HAMSTi nimmt euch den Mental Load im Haushalt ab: Aufgaben einmal eintragen, HAMSTi erinnert alle. Mit Menüplan, Rezepten und Statistik, alles in eurer iCloud.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://hamsti.ch/">
+<link rel="alternate" hreflang="de-CH" href="https://hamsti.ch/">
+<link rel="alternate" hreflang="x-default" href="https://hamsti.ch/">
+<meta name="author" content="Yannic Ziegler">
+<!-- Vorschau in Nachrichten, WhatsApp, Mastodon, X und Co. URLs absolut, sonst kein Bild. -->
 <meta property="og:site_name" content="HAMSTi">
+<meta property="og:locale" content="de_CH">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HAMSTi – Euer Haushalt, gemeinsam im Griff">
-<meta property="og:description" content="Aufgaben, Menüplan und Rezepte für alle, die mit euch wohnen. Alles in eurer iCloud, ohne Konto und ohne Tracking.">
-<!-- Absolute URLs, sonst zeigen iMessage und Co. kein Bild. Beim Umzug auf hamsti.ch anpassen. -->
-<meta property="og:url" content="https://sirzesso.github.io/">
-<meta property="og:image" content="https://sirzesso.github.io/og-card.jpg">
+<meta property="og:title" content="HAMSTi – Weniger Mental Load im Haushalt">
+<meta property="og:description" content="Einmal eintragen, HAMSTi erinnert alle. Sehen, wer wie viel macht. Rezepte in der eigenen iCloud. Gemacht für Apple, ohne Konto und ohne Tracking.">
+<meta property="og:url" content="https://hamsti.ch/">
+<meta property="og:image" content="https://hamsti.ch/og-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HAMSTi-Hamster mit Haus: Euer Haushalt, gemeinsam im Griff">
+<meta property="og:image:alt" content="HAMSTi-Hamster mit Haus: Weniger Mental Load im Haushalt">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#4078aa">
-<link rel="icon" type="image/png" href="/app-icon.png">
-<link rel="apple-touch-icon" href="/app-icon.png">
+<meta name="apple-mobile-web-app-title" content="HAMSTi">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/app-icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/assets/site.css">
 <!-- Sobald HAMSTi im App Store ist: Smart App Banner einschalten.
 <meta name="apple-itunes-app" content="app-id=APP_STORE_ID"> -->
-<style>
-  :root {
-    color-scheme: light dark;
-    --ocean-top: #4078aa;
-    --ocean-bottom: #0d474b;
-    --page: #eef3f7;
-    --card: #ffffff;
-    --text: #1c1c1e;
-    --secondary: #636a77;
-    --fill: rgba(120, 120, 128, .12);
-    --separator: rgba(60, 60, 67, .14);
-    --accent: #2f6fa8;
-    --shadow: 0 8px 30px rgba(0, 0, 0, .08);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --page: #000000;
-      --card: #1c1c1e;
-      --text: #f2f2f7;
-      --secondary: #9a9aa1;
-      --fill: rgba(120, 120, 128, .24);
-      --separator: rgba(84, 84, 88, .6);
-      --accent: #6aa7dc;
-      --shadow: none;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://hamsti.ch/",
+      "url": "https://hamsti.ch/",
+      "name": "HAMSTi – Haushalts-App gegen Mental Load",
+      "description": "HAMSTi nimmt euch den Mental Load im Haushalt ab: Aufgaben einmal eintragen, HAMSTi erinnert alle. Mit Menüplan, Rezepten und Statistik, alles in eurer iCloud.",
+      "inLanguage": "de-CH",
+      "isPartOf": {
+        "@id": "https://hamsti.ch/#website"
+      },
+      "about": {
+        "@id": "https://hamsti.ch/#app"
+      },
+      "primaryImageOfPage": "https://hamsti.ch/og-card.jpg"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hamsti.ch/#website",
+      "url": "https://hamsti.ch/",
+      "name": "HAMSTi",
+      "inLanguage": "de-CH",
+      "publisher": {
+        "@id": "https://hamsti.ch/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hamsti.ch/#organization",
+      "name": "HAMSTi",
+      "url": "https://hamsti.ch/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hamsti.ch/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "kontakt@hamsti.ch",
+      "founder": {
+        "@type": "Person",
+        "name": "Yannic Ziegler"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Feldspatgasse 3",
+        "postalCode": "8180",
+        "addressLocality": "Bülach",
+        "addressCountry": "CH"
+      }
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://hamsti.ch/#app",
+      "name": "HAMSTi",
+      "url": "https://hamsti.ch/",
+      "description": "Haushalts-App für Aufgaben mit Erinnerungen, Menüplan, Rezepte und Statistik, geteilt mit allen im Haushalt. Daten in der eigenen iCloud, Siri und Apple Intelligence auf dem Gerät, ohne Konto und ohne Tracking.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS 26, iPadOS 26, watchOS 26, tvOS 26",
+      "inLanguage": [
+        "de",
+        "en"
+      ],
+      "image": "https://hamsti.ch/icon-512.png",
+      "screenshot": [
+        "https://hamsti.ch/img/iphone-haushalt.webp",
+        "https://hamsti.ch/img/iphone-aufgaben.webp",
+        "https://hamsti.ch/img/iphone-menueplan.webp",
+        "https://hamsti.ch/img/iphone-rezept.webp",
+        "https://hamsti.ch/img/iphone-statistik.webp"
+      ],
+      "featureList": [
+        "Wiederkehrende Haushaltsaufgaben mit Erinnerungen",
+        "Haushalt über iCloud teilen",
+        "Statistik: wer wie viel macht",
+        "Menüplan",
+        "Rezepte importieren und verschicken",
+        "Siri und Kurzbefehle",
+        "Apple Intelligence auf dem Gerät",
+        "Apple Watch, Widgets und Apple TV"
+      ],
+      "author": {
+        "@id": "https://hamsti.ch/#organization"
+      },
+      "publisher": {
+        "@id": "https://hamsti.ch/#organization"
+      }
     }
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, system-ui, "Helvetica Neue", sans-serif;
-    font-size: 17px;
-    line-height: 1.45;
-    color: var(--text);
-    background: var(--page);
-    -webkit-font-smoothing: antialiased;
-  }
-  img { max-width: 100%; }
-  .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1rem; }
-
-  /* Hero */
-  header {
-    background: linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
-    color: #fff;
-    padding-top: env(safe-area-inset-top);
-  }
-  .brand {
-    display: flex; align-items: center; gap: .6rem;
-    padding: 1.25rem 0 0;
-    font-weight: 600; font-size: 1.1rem;
-  }
-  .brand img { width: 36px; height: 36px; border-radius: 9px; }
-  .hero {
-    display: grid;
-    gap: 1.5rem;
-    padding: 2rem 0 3rem;
-    text-align: center;
-  }
-  .hero h1 { font-size: 2.25rem; line-height: 1.12; font-weight: 700; margin: 0 0 .75rem; }
-  .hero .lead { font-size: 1.125rem; margin: 0 auto 1.75rem; max-width: 30rem; color: rgba(255, 255, 255, .85); }
-  .hamster { width: 220px; height: auto; margin: 0 auto; filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .3)); }
-  .store-row { display: flex; flex-direction: column; align-items: center; gap: .6rem; }
-  .badge { display: block; height: 48px; width: auto; }
-  .soon {
-    display: inline-block;
-    font-size: .8rem; font-weight: 600;
-    background: rgba(255, 255, 255, .18);
-    border-radius: 999px;
-    padding: .25rem .7rem;
-  }
-  .store-note { font-size: .9rem; color: rgba(255, 255, 255, .75); margin: 0; max-width: 24rem; }
-  @media (min-width: 760px) {
-    .hero { grid-template-columns: 1.2fr 1fr; align-items: center; text-align: left; padding: 3.5rem 0 4.5rem; }
-    .hero h1 { font-size: 3.25rem; }
-    .hero .lead { margin-left: 0; }
-    .store-row { align-items: flex-start; }
-    .hamster { width: 320px; order: 2; }
-  }
-
-  /* Sektionen */
-  section { padding: 3rem 0 0; }
-  h2 { font-size: 1.75rem; line-height: 1.2; font-weight: 700; margin: 0 0 .5rem; }
-  .section-lead { color: var(--secondary); margin: 0 0 1.5rem; max-width: 36rem; }
-
-  /* Screenshots */
-  .shots {
-    display: flex; gap: 1rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: .25rem 1rem 1rem;
-    margin: 0 -1rem;
-    scrollbar-width: none;
-  }
-  .shots::-webkit-scrollbar { display: none; }
-  .shots:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 12px; }
-  .shots figure { flex: 0 0 auto; width: 210px; margin: 0; scroll-snap-align: center; }
-  .shots img {
-    display: block; width: 100%; height: auto;
-    border-radius: 28px;
-    border: 1px solid var(--separator);
-    box-shadow: var(--shadow);
-    background: var(--card);
-  }
-  .shots figcaption { font-size: .9rem; color: var(--secondary); text-align: center; margin-top: .6rem; }
-  @media (min-width: 760px) {
-    .shots { justify-content: center; overflow: visible; margin: 0; padding: .25rem 0 1rem; }
-    .shots figure { width: calc((100% - 4rem) / 5); max-width: 230px; }
-  }
-
-  /* Funktionen */
-  .features { display: grid; gap: 1rem; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
-  @media (min-width: 600px) { .features { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 960px) { .features { grid-template-columns: 1fr 1fr 1fr; } }
-  .feature {
-    background: var(--card);
-    border-radius: 22px;
-    padding: 1.25rem;
-    box-shadow: var(--shadow);
-  }
-  .icon {
-    width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem;
-    border-radius: 12px;
-    background: var(--fill);
-    margin-bottom: .75rem;
-  }
-  .feature h3 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .3rem; }
-  .feature p { color: var(--secondary); margin: 0; font-size: .95rem; }
-
-  /* Apple Watch */
-  .watch {
-    display: grid; gap: 1.5rem; align-items: center;
-    background: var(--card);
-    border-radius: 22px;
-    padding: 1.5rem 1.25rem;
-    box-shadow: var(--shadow);
-  }
-  .watch-shots { display: flex; gap: .75rem; justify-content: center; }
-  .watch > * { min-width: 0; }
-  .watch-shots img { flex: 0 1 140px; min-width: 0; width: 140px; height: auto; border-radius: 34px; background: #000; padding: 6px; }
-  .watch p { color: var(--secondary); margin: 0; }
-  @media (min-width: 760px) { .watch { grid-template-columns: 1fr 1fr; padding: 2rem; } }
-
-  /* Privatsphäre */
-  .privacy {
-    background: linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
-    color: #fff;
-    border-radius: 22px;
-    padding: 2rem 1.25rem;
-    text-align: center;
-  }
-  .privacy h2 { margin-bottom: .75rem; }
-  .privacy > p { margin: 0 auto 1.5rem; max-width: 34rem; color: rgba(255, 255, 255, .85); }
-  .facts { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; padding: 0; margin: 0; list-style: none; }
-  .facts li {
-    font-size: .95rem; font-weight: 600;
-    background: rgba(255, 255, 255, .16);
-    border-radius: 999px;
-    padding: .45rem .9rem;
-  }
-
-  /* Abschluss */
-  .closing { text-align: center; padding-bottom: 1rem; }
-  .closing .section-lead { margin-left: auto; margin-right: auto; }
-  .closing .badge { margin: 0 auto; }
-  .closing .soon { color: var(--accent); background: var(--fill); margin-bottom: .75rem; }
-  .closing .store-note { color: var(--secondary); margin: .75rem auto 0; }
-
-  footer {
-    margin-top: 3rem;
-    padding: 1.5rem 0 calc(2rem + env(safe-area-inset-bottom));
-    border-top: 1px solid var(--separator);
-    font-size: .85rem;
-    color: var(--secondary);
-  }
-  footer .wrap { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; justify-content: space-between; }
-  footer nav { display: flex; gap: 1.25rem; }
-  footer a { color: var(--secondary); text-decoration: none; }
-  footer a:hover { color: var(--text); text-decoration: underline; }
-</style>
+  ]
+}
+</script>
 </head>
-<body>
-<header>
+<body class="home">
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="site-header">
   <div class="wrap">
-    <div class="brand">
-      <img src="/app-icon.png" alt="" width="36" height="36">
-      <span>HAMSTi</span>
+    <div class="bar">
+      <a class="brand" href="/" aria-current="page">
+        <img src="/app-icon.png" alt="" width="36" height="36">
+        <span>HAMSTi</span>
+      </a>
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="/#funktionen">Funktionen</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </nav>
     </div>
     <div class="hero">
       <img class="hamster" src="/img/hamsti.webp" alt="Hamsti, der Hamster aus der App, mit einem kleinen Haus" width="560" height="566">
       <div>
-        <h1>Euer Haushalt, gemeinsam im Griff</h1>
-        <p class="lead">Wiederkehrende Aufgaben, Menüplan und Rezepte an einem Ort, geteilt mit allen, die mit euch wohnen.</p>
+        <h1>Weniger Mental Load im Haushalt</h1>
+        <p class="lead">Aufgaben einmal eintragen, HAMSTi erinnert alle zur richtigen Zeit. Ihr seht, wer wie viel macht, plant eure Menüs und behaltet eure Rezepte in eurer eigenen iCloud.</p>
         <div class="store-row">
           <span class="soon">Bald im App Store</span>
           <!-- Offizielles Apple-Badge, unverändert. Sobald die App live ist,
@@ -227,8 +156,34 @@
     </div>
   </div>
 </header>
+<main class="wrap" id="inhalt">
+  <section aria-labelledby="why-title">
+    <h2 id="why-title">Niemand muss mehr an alles denken</h2>
+    <p class="section-lead">Im Haushalt bleibt das Daran-Denken oft an einer Person hängen. HAMSTi macht es einfacher und verteilt es auf alle.</p>
+    <ul class="features pillars">
+      <li class="feature">
+        <div class="icon" aria-hidden="true">🧠</div>
+        <h3>Mental Load abgeben</h3>
+        <p>Was sonst im Kopf herumschwirrt, tragt ihr einmal ein, mit eigenem Rhythmus. HAMSTi erinnert zur richtigen Zeit, und alle im Haushalt arbeiten mit derselben Liste.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">⚖️</div>
+        <h3>Sehen, wer wie viel macht</h3>
+        <p>Die Statistik zeigt ehrlich, wer im Haushalt wie viel erledigt. Das macht Arbeit sichtbar, die sonst niemand bemerkt.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">🍲</div>
+        <h3>Menüs und Grossmutters Rezepte</h3>
+        <p>Plant die Woche mit wenigen Fingertipps. Eure Rezepte, auch die von der Grossmutter, bleiben in eurer eigenen iCloud, nicht auf irgendeiner Plattform.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">🔒</div>
+        <h3>Eure Daten gehören euch</h3>
+        <p>Kein Konto, kein Server, kein Tracking. Alles liegt in eurer iCloud, und die KI arbeitet auf dem Gerät.</p>
+      </li>
+    </ul>
+  </section>
 
-<main class="wrap">
   <section aria-labelledby="shots-title">
     <h2 id="shots-title">So sieht HAMSTi aus</h2>
     <p class="section-lead">Überfällig, heute, bald fällig: auf einen Blick, wer was zu tun hat und was es zu essen gibt.</p>
@@ -256,34 +211,34 @@
     </div>
   </section>
 
-  <section aria-labelledby="features-title">
-    <h2 id="features-title">Was HAMSTi kann</h2>
-    <p class="section-lead">Für Wohnungen, WGs und Familien, in denen das Wiederkehrende nicht an einer Person hängen bleiben soll.</p>
+  <section id="funktionen" aria-labelledby="features-title">
+    <h2 id="features-title">Gemacht für Apple, KI von Anfang an</h2>
+    <p class="section-lead">HAMSTi ist entstanden, weil keine Haushalts-App sauber mit Siri und Apple Intelligence zusammengearbeitet hat. Darum nutzt HAMSTi die stärksten Funktionen von Apple direkt, statt sie nachzubauen.</p>
     <ul class="features">
       <li class="feature">
-        <div class="icon" aria-hidden="true">✅</div>
-        <h3>Aufgaben und Erinnerungen</h3>
-        <p>Jede Aufgabe mit eigenem Rhythmus. HAMSTi erinnert, wenn etwas fällig ist, und ihr hakt es direkt aus der Mitteilung ab.</p>
+        <div class="icon" aria-hidden="true">🎙️</div>
+        <h3>Siri und Kurzbefehle</h3>
+        <p>Aufgaben erstellen und abhaken, fragen, was heute fällig ist, und Menüs einplanen, ohne die App zu öffnen.</p>
       </li>
       <li class="feature">
-        <div class="icon" aria-hidden="true">🍽️</div>
-        <h3>Menüplan und Rezepte</h3>
-        <p>Plant Tag und Woche, holt Rezepte von jeder Webseite oder fotografiert sie ab. Apple Intelligence ergänzt fehlende Angaben auf dem Gerät.</p>
+        <div class="icon" aria-hidden="true">✨</div>
+        <h3>Apple Intelligence auf dem Gerät</h3>
+        <p>Rezepte zusammenfassen, Zutaten ordnen, Menüs beschriften. Das passiert direkt auf deinem iPhone, nichts geht an einen fremden Server.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">📥</div>
+        <h3>Alles importieren</h3>
+        <p>Ein Rezept von einer Webseite, ein Foto aus dem Kochbuch, ein Link aus der Zwischenablage: HAMSTi macht daraus einen sauberen Eintrag.</p>
       </li>
       <li class="feature">
         <div class="icon" aria-hidden="true">👨‍👩‍👧</div>
-        <h3>Haushalt teilen</h3>
+        <h3>Ein Haushalt für alle</h3>
         <p>Ladet alle ein, die mit euch wohnen, über iCloud. Jede Person hat ein eigenes Profil, damit klar ist, wer was erledigt hat.</p>
       </li>
       <li class="feature">
         <div class="icon" aria-hidden="true">💌</div>
         <h3>Rezepte verschicken</h3>
-        <p>Schickt ein Lieblingsrezept an Freunde. Mit einem Tipp landet es in ihrem eigenen Haushalt.</p>
-      </li>
-      <li class="feature">
-        <div class="icon" aria-hidden="true">📱</div>
-        <h3>Widgets</h3>
-        <p>Das heutige Menü und deine nächsten Aufgaben auf dem Home- und Sperrbildschirm.</p>
+        <p>Schickt ein Lieblingsrezept an die Familie. Mit einem Tipp landet es in ihrem eigenen Haushalt.</p>
       </li>
       <li class="feature">
         <div class="icon" aria-hidden="true">📺</div>
@@ -300,41 +255,54 @@
         <img src="/img/watch-menue.webp" alt="Heutiges Menü auf der Apple Watch" width="422" height="514" loading="lazy">
       </div>
       <div>
-        <h2 id="watch-title">Am Handgelenk erledigt</h2>
-        <p>Auf der Apple Watch hakt ihr Aufgaben ab und seht, was es heute zu essen gibt. Dazu gibt es eine Complication fürs Zifferblatt.</p>
+        <h2 id="watch-title">Überall dort, wo ihr seid</h2>
+        <p>Auf der Apple Watch hakt ihr Aufgaben ab und seht, was es heute zu essen gibt. Widgets zeigen das Menü und die nächsten Aufgaben auf dem Home- und Sperrbildschirm.</p>
       </div>
     </div>
   </section>
 
   <section aria-labelledby="privacy-title">
     <div class="privacy">
-      <h2 id="privacy-title">Eure Daten bleiben bei euch</h2>
-      <p>Alles liegt in eurer iCloud. Es gibt keinen HAMSTi-Server, und wir sehen nichts von euren Aufgaben, Menüs oder Rezepten.</p>
-      <ul class="facts">
+      <h2 id="privacy-title">Datenschutz ist ein Menschenrecht</h2>
+      <p>Wer die eigenen Daten behält, bleibt souverän. Darum liegt alles in eurer iCloud. Es gibt keinen HAMSTi-Server, wir sehen nichts von euren Aufgaben, Menüs oder Rezepten, und die KI rechnet auf dem Gerät.</p>
+      <ul class="chips">
         <li>Alles in deiner iCloud</li>
         <li>Kein Konto</li>
         <li>Kein Tracking</li>
         <li>Keine Werbung</li>
+        <li>KI auf dem Gerät</li>
       </ul>
+      <p><a href="/datenschutz/">Zur Datenschutzerklärung</a></p>
     </div>
   </section>
 
   <section class="closing" aria-labelledby="closing-title">
-    <h2 id="closing-title">Bereit für weniger Haushaltsstress?</h2>
+    <h2 id="closing-title">Weniger im Kopf, mehr Zeit füreinander</h2>
     <p class="section-lead">HAMSTi gibt es für iPhone, iPad, Apple Watch und Apple TV.</p>
     <span class="soon">Bald im App Store</span>
     <img class="badge" src="/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
     <p class="store-note">Bis zum Start läuft HAMSTi über TestFlight, auf Einladung.</p>
   </section>
 </main>
-
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 Yannic Ziegler</span>
-    <nav aria-label="Rechtliches">
-      <a href="/datenschutz/">Datenschutz</a>
-      <a href="/impressum/">Impressum</a>
+    <div>
+      <a class="brand" href="/">
+        <img src="/app-icon.png" alt="" width="28" height="28" loading="lazy">
+        <span>HAMSTi</span>
+      </a>
+      <p>Weniger Mental Load im Haushalt. Für iPhone, iPad, Apple Watch und Apple TV.</p>
+    </div>
+    <nav aria-label="Weitere Seiten">
+      <ul>
+        <li><a href="/">Start</a></li>
+        <li><a href="/datenschutz/">Datenschutz</a></li>
+        <li><a href="/impressum/">Impressum</a></li>
+        <li><a href="mailto:kontakt@hamsti.ch">Kontakt</a></li>
+        <li><a href="/.well-known/security.txt">Sicherheitslücke melden</a></li>
+      </ul>
     </nav>
+    <p class="copyright">© 2026 Yannic Ziegler, Bülach</p>
   </div>
 </footer>
 </body>

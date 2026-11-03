@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Nur Seiten, die in Suchmaschinen sollen. Neue Seite: hier eintragen, lastmod bei grösseren Änderungen nachführen. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://hamsti.ch/</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://hamsti.ch/datenschutz/</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://hamsti.ch/impressum/</loc>
+    <lastmod>2026-11-03</lastmod>
+  </url>
+</urlset>
