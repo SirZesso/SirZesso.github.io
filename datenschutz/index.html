@@ -73,12 +73,23 @@
   .summary h2 { margin-top: 0; }
   .summary ul { list-style: none; padding: 0; margin: 0; }
   .summary li {
-    padding: .7rem 0;
+    display: flex; gap: .85rem; align-items: flex-start;
+    padding: .8rem 0;
     border-top: 1px solid var(--separator);
   }
+  .glyph {
+    flex: none;
+    width: 40px; height: 40px;
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--fill);
+    color: var(--accent);
+  }
+  .glyph svg { width: 22px; height: 22px; }
   .summary li:first-child { border-top: none; padding-top: 0; }
   .summary li strong { display: block; }
-  .summary li span { color: var(--secondary); font-size: .95rem; }
+  .summary li div span { display: block; }
+  .summary li div span { color: var(--secondary); font-size: .95rem; }
   h2 { font-size: 1.3rem; line-height: 1.25; font-weight: 700; margin: 2rem 0 .5rem; }
   .card > h2:first-child { margin-top: 0; }
   h3 { font-size: 1.05rem; font-weight: 600; margin: 1.5rem 0 .35rem; }
@@ -93,6 +104,51 @@
   .label { font-weight: 600; }
   ul:has(> li > .label) { list-style: none; padding-left: 0; }
   ul:has(> li > .label) li { margin-bottom: .6rem; }
+  nav.switch {
+    position: sticky; top: 0; z-index: 10;
+    margin: 0 -1rem 1rem;
+    padding: .6rem 1rem calc(.6rem);
+    background: var(--page);
+  }
+  nav.switch ul {
+    display: flex; list-style: none; margin: 0; padding: 3px;
+    background: var(--fill); border-radius: 11px;
+  }
+  nav.switch li { flex: 1; margin: 0; }
+  nav.switch a {
+    display: block; text-align: center;
+    padding: .45rem .25rem; border-radius: 8px;
+    font-size: .9rem; font-weight: 600;
+    color: var(--text); text-decoration: none;
+  }
+  nav.switch a[aria-current="true"] {
+    background: var(--card);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    color: var(--accent);
+  }
+  section[id] { scroll-margin-top: 4.5rem; }
+  .eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin: 0 0 .2rem; }
+  .steps-title { font-size: .95rem; font-weight: 600; margin: 1rem 0 .4rem; }
+  ol.steps {
+    list-style: none; margin: 0 0 .85rem; padding: 0;
+    background: var(--fill); border-radius: 12px; overflow: hidden;
+  }
+  ol.steps li {
+    display: flex; align-items: center; gap: .7rem;
+    margin: 0; padding: .6rem .85rem;
+    border-top: 1px solid var(--separator);
+    font-size: .95rem;
+  }
+  ol.steps li:first-child { border-top: none; }
+  ol.steps li::after { content: "›"; margin-left: auto; color: var(--secondary); font-size: 1.2rem; line-height: 1; }
+  ol.steps li:last-child::after { content: none; }
+  ol.steps .n {
+    flex: none; width: 1.5rem; height: 1.5rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--accent); color: #fff; font-size: .8rem; font-weight: 600;
+  }
+  ol.steps .danger { color: #d93a30; font-weight: 600; }
+  @media (prefers-color-scheme: dark) { ol.steps .danger { color: #ff6961; } }
   footer { text-align: center; font-size: .85rem; color: var(--secondary); margin-top: 1.5rem; }
   footer a { color: inherit; }
 </style>
@@ -115,20 +171,29 @@
   <section class="card summary" aria-labelledby="kurz">
     <h2 id="kurz">Kurz gesagt</h2>
     <ul>
-      <li><strong>Kein Konto, kein eigener Server</strong><span>Deine Aufgaben, Menüs und Rezepte liegen auf deinen Geräten und in deiner eigenen iCloud. Ich habe keinen Zugriff darauf.</span></li>
-      <li><strong>Kein Tracking, keine Werbung, keine Analyse-Tools</strong><span>Weder die App noch die Website enthalten Werbe-, Tracking- oder Statistik-Software von Drittanbietern. Die Website setzt keine Cookies.</span></li>
-      <li><strong>Künstliche Intelligenz auf dem Gerät</strong><span>Rezepte ordnen, Fotos lesen und Bilder erzeugen geschieht mit Apple Intelligence direkt auf deinem Gerät.</span></li>
-      <li><strong>Geteilte Rezepte bleiben im Link</strong><span>Das Rezept steckt im Link selbst. Die Website bekommt es nicht zu sehen und speichert nichts.</span></li>
+      <li><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 11.2 3.5 3.5 0 0 0 7 18z"/><path d="M10 14.5l1.5 1.5 3-3"/></svg></span><div><strong>Kein Konto, kein eigener Server</strong><span>Deine Aufgaben, Menüs und Rezepte liegen auf deinen Geräten und in deiner eigenen iCloud. Ich habe keinen Zugriff darauf.</span></div></li>
+      <li><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/><path d="M4 20L20 4"/></svg></span><div><strong>Kein Tracking, keine Werbung, keine Analyse-Tools</strong><span>Weder die App noch die Website enthalten Werbe-, Tracking- oder Statistik-Software von Drittanbietern. Die Website setzt keine Cookies.</span></div></li>
+      <li><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span><div><strong>Künstliche Intelligenz auf dem Gerät</strong><span>Rezepte ordnen, Fotos lesen und Bilder erzeugen geschieht mit Apple Intelligence direkt auf deinem Gerät.</span></div></li>
+      <li><span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg></span><div><strong>Geteilte Rezepte bleiben im Link</strong><span>Das Rezept steckt im Link selbst. Die Website bekommt es nicht zu sehen und speichert nichts.</span></div></li>
     </ul>
   </section>
+
+  <nav class="switch" aria-label="Teil der Erklärung">
+    <ul>
+      <li><a href="#app">App</a></li>
+      <li><a href="#website">Website</a></li>
+      <li><a href="#rechte">Rechte</a></li>
+    </ul>
+  </nav>
 
   <section class="card" aria-labelledby="ueber">
     <h2 id="ueber">Über HAMSTi</h2>
     <p>HAMSTi ist eine App für iPhone, iPad, Apple Watch und Apple TV, mit der Haushalte ihre Aufgaben und ihren Menüplan gemeinsam organisieren. HAMSTi ist ein privates Projekt einer Einzelperson aus der Schweiz. Ich betreibe dafür keinen eigenen Server, und du brauchst kein Konto bei mir.</p>
   </section>
 
-  <section class="card" aria-labelledby="app">
-    <h2 id="app">App HAMSTi</h2>
+  <section class="card" id="app" aria-labelledby="app-titel">
+    <p class="eyebrow">Datenschutz in der App</p>
+    <h2 id="app-titel">App HAMSTi</h2>
 
     <h3>Wann kommt dieser Teil zur Anwendung?</h3>
     <p>Dieser Teil gilt, wenn du HAMSTi auf iPhone, iPad, Apple Watch oder Apple TV nutzt, einschliesslich Widgets, Siri und Kurzbefehlen. Für Dienste von Apple, die HAMSTi verwendet (iCloud, App Store, TestFlight, Siri), gilt zusätzlich die <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von Apple</a>. Für Websites, von denen du Rezepte importierst, gilt die Datenschutzerklärung ihres Betreibers.</p>
@@ -164,7 +229,7 @@
 
     <h3>Wer sind die Empfänger deiner Personendaten?</h3>
     <ul>
-      <li><span class="label">[A] Apple:</span> speichert deine Daten in iCloud, stellt Push-Dienst, Siri, App Store und TestFlight bereit</li>
+      <li><span class="label">[A] Apple:</span> speichert deine Daten in iCloud, stellt Push-Dienst, Siri, App Store und TestFlight bereit. Für Nutzerinnen und Nutzer in der Schweiz und der EU ist dafür die Apple Distribution International Ltd. in Irland verantwortlich.</li>
       <li><span class="label">[B] Mitglieder deines Haushalts:</span> wenn du den Haushalt teilst</li>
       <li><span class="label">[C] Empfänger deiner Rezept-Links:</span> die Personen, denen du einen Link schickst</li>
       <li><span class="label">[D] Websites, von denen du Rezepte importierst:</span> sie sehen den Abruf wie bei jedem Seitenaufruf</li>
@@ -172,17 +237,35 @@
     </ul>
 
     <h3>In welche Drittstaaten werden deine Personendaten bekanntgegeben?</h3>
-    <p>Apple bearbeitet Daten auch in den USA und weiteren Ländern. Apple ist nach dem Data Privacy Framework zwischen der EU, der Schweiz und den USA zertifiziert und setzt zusätzlich Standardvertragsklauseln ein.</p>
+    <p>Apple bearbeitet Daten auch bei der Apple Inc. in den USA und in weiteren Ländern. In den USA gilt nach Schweizer und EU-Recht kein gleichwertiger Datenschutz. Apple stützt diese Übermittlungen deshalb auf die Standardvertragsklauseln der EU-Kommission. Das sind vorgegebene Musterverträge, mit denen sich der Empfänger verpflichtet, die Daten nach europäischem Niveau zu schützen. Der EDÖB anerkennt sie auch für die Schweiz.</p>
 
     <h3>Wie werden deine Personendaten geschützt?</h3>
     <p>HAMSTi speichert deine Daten nicht auf eigenen Servern. In iCloud sind sie deinem Apple-Account zugeordnet, bei der Übertragung und auf Apples Servern verschlüsselt. Künstliche Intelligenz und Texterkennung laufen auf dem Gerät. Schütze deinen Apple-Account am besten mit der Zwei-Faktor-Authentifizierung und deine Geräte mit einem Code.</p>
 
     <h3>Wie lange werden deine Personendaten gespeichert?</h3>
-    <p>Deine App-Daten bleiben in deiner iCloud, bis du sie löschst. Einzelne Einträge oder einen ganzen Haushalt löschst du in der App. Alle Daten von HAMSTi in iCloud löschst du in den Einstellungen deines Geräts unter deinem Namen → „iCloud“ → „Speicher verwalten“ → „HAMSTi“. Wenn du die App löschst, entfernt das System die Daten auf diesem Gerät. Wie lange Apple Absturzberichte und Statistiken aufbewahrt, regelt Apple.</p>
+    <p>Deine App-Daten bleiben in deiner iCloud, bis du sie löschst. Einzelne Aufgaben, Menüs und Rezepte löschst du direkt dort, wo du sie siehst. Wenn du die App löschst, entfernt das System die Daten auf diesem Gerät. Wie lange Apple Absturzberichte und Statistiken aufbewahrt, regelt Apple.</p>
+    <p class="steps-title">Ganzen Haushalt löschen, in HAMSTi</p>
+    <ol class="steps">
+      <li><span class="n">1</span>Tab „Haushalt“</li>
+      <li><span class="n">2</span>Menü „…“ oben</li>
+      <li><span class="n">3</span>„Haushalt verwalten“</li>
+      <li><span class="n">4</span><span class="danger">„Haushalt löschen …“</span></li>
+    </ol>
+    <p class="note">Hat dich jemand eingeladen, verlässt du den Haushalt dort unter „Meine Teilnahme“.</p>
+    <p class="steps-title">Alle HAMSTi-Daten aus iCloud löschen, in den iPhone-Einstellungen</p>
+    <ol class="steps">
+      <li><span class="n">1</span>„Einstellungen“</li>
+      <li><span class="n">2</span>Dein Name ganz oben</li>
+      <li><span class="n">3</span>„iCloud“</li>
+      <li><span class="n">4</span>„Speicher verwalten“</li>
+      <li><span class="n">5</span>„HAMSTi“</li>
+      <li><span class="n">6</span><span class="danger">„Daten aus iCloud löschen“</span></li>
+    </ol>
   </section>
 
-  <section class="card" aria-labelledby="website">
-    <h2 id="website">Website hamsti.ch</h2>
+  <section class="card" id="website" aria-labelledby="website-titel">
+    <p class="eyebrow">Datenschutz auf der Website</p>
+    <h2 id="website-titel">Website hamsti.ch</h2>
 
     <h3>Wann kommt dieser Teil zur Anwendung?</h3>
     <p>Dieser Teil gilt, wenn du hamsti.ch besuchst, auch über die frühere Adresse sirzesso.github.io, und wenn du einen Rezept-Link aus HAMSTi im Browser öffnest. Für verlinkte Seiten, etwa den App Store, gelten deren eigene Datenschutzerklärungen.</p>
@@ -214,7 +297,7 @@
     </ul>
 
     <h3>In welche Drittstaaten werden deine Personendaten bekanntgegeben?</h3>
-    <p>GitHub und Apple bearbeiten Daten auch in den USA. Beide sind nach dem Data Privacy Framework zwischen der EU, der Schweiz und den USA zertifiziert und setzen zusätzlich Standardvertragsklauseln ein.</p>
+    <p>GitHub bearbeitet Daten in den USA. GitHub ist nach dem Data Privacy Framework zwischen der EU, der Schweiz und den USA zertifiziert; für Übermittlungen aus der Schweiz in die USA gilt damit ein angemessener Schutz. Zusätzlich nutzt GitHub die Standardvertragsklauseln der EU-Kommission. Für Apple (iCloud Mail) gelten die Standardvertragsklauseln wie im Teil zur App beschrieben.</p>
 
     <h3>Wie werden deine Personendaten geschützt?</h3>
     <p>Die Website wird nur verschlüsselt (HTTPS) ausgeliefert. Sie ist statisch, hat keine Datenbank und speichert selbst nichts.</p>
@@ -223,8 +306,9 @@
     <p>Wie lange GitHub Zugriffsdaten aufbewahrt, regelt GitHub. E-Mails bewahre ich so lange auf, wie es für deine Anfrage nötig ist.</p>
   </section>
 
-  <section class="card" aria-labelledby="rechte">
-    <h2 id="rechte">Welche Rechte hast du in Bezug auf deine Personendaten?</h2>
+  <section class="card" id="rechte" aria-labelledby="rechte-titel">
+    <p class="eyebrow">Für App und Website</p>
+    <h2 id="rechte-titel">Welche Rechte hast du in Bezug auf deine Personendaten?</h2>
     <p>Im Rahmen des anwendbaren Datenschutzrechts hast du das Recht,</p>
     <ul>
       <li>Auskunft über deine Personendaten zu verlangen,</li>
@@ -240,12 +324,14 @@
   </section>
 
   <section class="card" aria-labelledby="aenderungen">
+    <p class="eyebrow">Für App und Website</p>
     <h2 id="aenderungen">Änderungen der Datenschutzerklärung</h2>
     <p>Wenn HAMSTi neue Funktionen bekommt, die Daten anders bearbeiten, passe ich diese Erklärung an. Es gilt die jeweils hier veröffentlichte Fassung mit dem Datum oben.</p>
   </section>
 
-  <section class="card" aria-labelledby="kontakt">
-    <h2 id="kontakt">Kontaktdaten</h2>
+  <section class="card" id="kontakt" aria-labelledby="kontakt-titel">
+    <p class="eyebrow">Für App und Website</p>
+    <h2 id="kontakt-titel">Kontaktdaten</h2>
     <p>Verantwortlich für die App HAMSTi und die Website hamsti.ch:</p>
     <address>
       Yannic Ziegler<br>
@@ -259,5 +345,22 @@
 
   <footer><a href="/">HAMSTi</a> für iPhone, iPad, Apple Watch und Apple TV</footer>
 </main>
+<script>
+// Markiert im Umschalter, welcher Teil gerade gelesen wird.
+(() => {
+  const links = [...document.querySelectorAll('nav.switch a')];
+  const sections = links.map(link => document.querySelector(link.getAttribute('href')));
+  const update = () => {
+    const line = 120;
+    let current = -1;
+    sections.forEach((section, index) => {
+      if (section && section.getBoundingClientRect().top <= line) current = index;
+    });
+    links.forEach((link, index) => link.setAttribute('aria-current', String(index === current)));
+  };
+  addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
 </body>
 </html>
