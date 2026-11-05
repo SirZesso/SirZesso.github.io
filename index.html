@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HAMSTi – Aufgaben und Menüplan für euren Haushalt</title>
-<meta name="description" content="HAMSTi hält euren Haushalt am Laufen: wiederkehrende Aufgaben, Menüplan und Rezepte an einem Ort, geteilt mit allen, die mit euch wohnen. Für iPhone, iPad, Apple Watch und Apple TV.">
+<title>HAMSTi – Weniger Mental Load im Haushalt</title>
+<meta name="description" content="HAMSTi nimmt euch den Mental Load ab: Haushaltsaufgaben einfach eintragen, HAMSTi erinnert alle zur richtigen Zeit. Ihr seht, wer wie viel macht, plant Menüs und behaltet eure Rezepte in eurer eigenen iCloud. Für iPhone, iPad, Apple Watch und Apple TV.">
 <meta property="og:site_name" content="HAMSTi">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HAMSTi – Euer Haushalt, gemeinsam im Griff">
-<meta property="og:description" content="Aufgaben, Menüplan und Rezepte für alle, die mit euch wohnen. Alles in eurer iCloud, ohne Konto und ohne Tracking.">
+<meta property="og:title" content="HAMSTi – Weniger Mental Load im Haushalt">
+<meta property="og:description" content="Einmal eintragen, HAMSTi erinnert alle. Sehen, wer wie viel macht. Rezepte in der eigenen iCloud. Gemacht für Apple, ohne Konto und ohne Tracking.">
 <!-- Absolute URLs, sonst zeigen iMessage und Co. kein Bild. Beim Umzug auf hamsti.ch anpassen. -->
 <meta property="og:url" content="https://sirzesso.github.io/">
 <meta property="og:image" content="https://sirzesso.github.io/og-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="HAMSTi-Hamster mit Haus: Euer Haushalt, gemeinsam im Griff">
+<meta property="og:image:alt" content="HAMSTi-Hamster mit Haus: Weniger Mental Load im Haushalt">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#4078aa">
 <link rel="icon" type="image/png" href="/app-icon.png">
@@ -133,7 +133,7 @@
   /* Funktionen */
   .features { display: grid; gap: 1rem; grid-template-columns: 1fr; padding: 0; margin: 0; list-style: none; }
   @media (min-width: 600px) { .features { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 960px) { .features { grid-template-columns: 1fr 1fr 1fr; } }
+  @media (min-width: 960px) { .features { grid-template-columns: 1fr 1fr 1fr; } .pillars { grid-template-columns: 1fr 1fr; } }
   .feature {
     background: var(--card);
     border-radius: 22px;
@@ -213,8 +213,8 @@
     <div class="hero">
       <img class="hamster" src="/img/hamsti.webp" alt="Hamsti, der Hamster aus der App, mit einem kleinen Haus" width="560" height="566">
       <div>
-        <h1>Euer Haushalt, gemeinsam im Griff</h1>
-        <p class="lead">Wiederkehrende Aufgaben, Menüplan und Rezepte an einem Ort, geteilt mit allen, die mit euch wohnen.</p>
+        <h1>Weniger Mental Load im Haushalt</h1>
+        <p class="lead">Aufgaben einmal eintragen, HAMSTi erinnert alle zur richtigen Zeit. Ihr seht, wer wie viel macht, plant eure Menüs und behaltet eure Rezepte in eurer eigenen iCloud.</p>
         <div class="store-row">
           <span class="soon">Bald im App Store</span>
           <!-- Offizielles Apple-Badge, unverändert. Sobald die App live ist,
@@ -229,6 +229,33 @@
 </header>
 
 <main class="wrap">
+  <section aria-labelledby="why-title">
+    <h2 id="why-title">Niemand muss mehr an alles denken</h2>
+    <p class="section-lead">Im Haushalt bleibt das Daran-Denken oft an einer Person hängen. HAMSTi macht es einfacher und verteilt es auf alle.</p>
+    <ul class="features pillars">
+      <li class="feature">
+        <div class="icon" aria-hidden="true">🧠</div>
+        <h3>Mental Load abgeben</h3>
+        <p>Was sonst im Kopf herumschwirrt, tragt ihr einmal ein, mit eigenem Rhythmus. HAMSTi erinnert zur richtigen Zeit, und alle im Haushalt arbeiten mit derselben Liste.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">⚖️</div>
+        <h3>Sehen, wer wie viel macht</h3>
+        <p>Die Statistik zeigt ehrlich, wer im Haushalt wie viel erledigt. Das macht Arbeit sichtbar, die sonst niemand bemerkt.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">🍲</div>
+        <h3>Menüs und Grossmutters Rezepte</h3>
+        <p>Plant die Woche mit wenigen Fingertipps. Eure Rezepte, auch die von der Grossmutter, bleiben in eurer eigenen iCloud, nicht auf irgendeiner Plattform.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">🔒</div>
+        <h3>Eure Daten gehören euch</h3>
+        <p>Kein Konto, kein Server, kein Tracking. Alles liegt in eurer iCloud, und die KI arbeitet auf dem Gerät.</p>
+      </li>
+    </ul>
+  </section>
+
   <section aria-labelledby="shots-title">
     <h2 id="shots-title">So sieht HAMSTi aus</h2>
     <p class="section-lead">Überfällig, heute, bald fällig: auf einen Blick, wer was zu tun hat und was es zu essen gibt.</p>
@@ -257,33 +284,33 @@
   </section>
 
   <section aria-labelledby="features-title">
-    <h2 id="features-title">Was HAMSTi kann</h2>
-    <p class="section-lead">Für Wohnungen, WGs und Familien, in denen das Wiederkehrende nicht an einer Person hängen bleiben soll.</p>
+    <h2 id="features-title">Gemacht für Apple, KI von Anfang an</h2>
+    <p class="section-lead">HAMSTi ist entstanden, weil keine Haushalts-App sauber mit Siri und Apple Intelligence zusammengearbeitet hat. Darum nutzt HAMSTi die stärksten Funktionen von Apple direkt, statt sie nachzubauen.</p>
     <ul class="features">
       <li class="feature">
-        <div class="icon" aria-hidden="true">✅</div>
-        <h3>Aufgaben und Erinnerungen</h3>
-        <p>Jede Aufgabe mit eigenem Rhythmus. HAMSTi erinnert, wenn etwas fällig ist, und ihr hakt es direkt aus der Mitteilung ab.</p>
+        <div class="icon" aria-hidden="true">🎙️</div>
+        <h3>Siri und Kurzbefehle</h3>
+        <p>Aufgaben erstellen und abhaken, fragen, was heute fällig ist, und Menüs einplanen, ohne die App zu öffnen.</p>
       </li>
       <li class="feature">
-        <div class="icon" aria-hidden="true">🍽️</div>
-        <h3>Menüplan und Rezepte</h3>
-        <p>Plant Tag und Woche, holt Rezepte von jeder Webseite oder fotografiert sie ab. Apple Intelligence ergänzt fehlende Angaben auf dem Gerät.</p>
+        <div class="icon" aria-hidden="true">✨</div>
+        <h3>Apple Intelligence auf dem Gerät</h3>
+        <p>Rezepte zusammenfassen, Zutaten ordnen, Menüs beschriften. Das passiert direkt auf deinem iPhone, nichts geht an einen fremden Server.</p>
+      </li>
+      <li class="feature">
+        <div class="icon" aria-hidden="true">📥</div>
+        <h3>Alles importieren</h3>
+        <p>Ein Rezept von einer Webseite, ein Foto aus dem Kochbuch, ein Link aus der Zwischenablage: HAMSTi macht daraus einen sauberen Eintrag.</p>
       </li>
       <li class="feature">
         <div class="icon" aria-hidden="true">👨‍👩‍👧</div>
-        <h3>Haushalt teilen</h3>
+        <h3>Ein Haushalt für alle</h3>
         <p>Ladet alle ein, die mit euch wohnen, über iCloud. Jede Person hat ein eigenes Profil, damit klar ist, wer was erledigt hat.</p>
       </li>
       <li class="feature">
         <div class="icon" aria-hidden="true">💌</div>
         <h3>Rezepte verschicken</h3>
-        <p>Schickt ein Lieblingsrezept an Freunde. Mit einem Tipp landet es in ihrem eigenen Haushalt.</p>
-      </li>
-      <li class="feature">
-        <div class="icon" aria-hidden="true">📱</div>
-        <h3>Widgets</h3>
-        <p>Das heutige Menü und deine nächsten Aufgaben auf dem Home- und Sperrbildschirm.</p>
+        <p>Schickt ein Lieblingsrezept an die Familie. Mit einem Tipp landet es in ihrem eigenen Haushalt.</p>
       </li>
       <li class="feature">
         <div class="icon" aria-hidden="true">📺</div>
@@ -300,27 +327,28 @@
         <img src="/img/watch-menue.webp" alt="Heutiges Menü auf der Apple Watch" width="422" height="514" loading="lazy">
       </div>
       <div>
-        <h2 id="watch-title">Am Handgelenk erledigt</h2>
-        <p>Auf der Apple Watch hakt ihr Aufgaben ab und seht, was es heute zu essen gibt. Dazu gibt es eine Complication fürs Zifferblatt.</p>
+        <h2 id="watch-title">Überall dort, wo ihr seid</h2>
+        <p>Auf der Apple Watch hakt ihr Aufgaben ab und seht, was es heute zu essen gibt. Widgets zeigen das Menü und die nächsten Aufgaben auf dem Home- und Sperrbildschirm.</p>
       </div>
     </div>
   </section>
 
   <section aria-labelledby="privacy-title">
     <div class="privacy">
-      <h2 id="privacy-title">Eure Daten bleiben bei euch</h2>
-      <p>Alles liegt in eurer iCloud. Es gibt keinen HAMSTi-Server, und wir sehen nichts von euren Aufgaben, Menüs oder Rezepten.</p>
+      <h2 id="privacy-title">Datenschutz ist ein Menschenrecht</h2>
+      <p>Wer die eigenen Daten behält, bleibt souverän. Darum liegt alles in eurer iCloud. Es gibt keinen HAMSTi-Server, wir sehen nichts von euren Aufgaben, Menüs oder Rezepten, und die KI rechnet auf dem Gerät.</p>
       <ul class="facts">
         <li>Alles in deiner iCloud</li>
         <li>Kein Konto</li>
         <li>Kein Tracking</li>
         <li>Keine Werbung</li>
+        <li>KI auf dem Gerät</li>
       </ul>
     </div>
   </section>
 
   <section class="closing" aria-labelledby="closing-title">
-    <h2 id="closing-title">Bereit für weniger Haushaltsstress?</h2>
+    <h2 id="closing-title">Weniger im Kopf, mehr Zeit füreinander</h2>
     <p class="section-lead">HAMSTi gibt es für iPhone, iPad, Apple Watch und Apple TV.</p>
     <span class="soon">Bald im App Store</span>
     <img class="badge" src="/app-store-badge.svg" alt="Laden im App Store" width="144" height="48">
